@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+.form-tarefa {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.adicionar {
+    display: block;
+    width: 150px;
+    padding: 10px;
+    margin: 20px auto 0;
+    background: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.adicionar:hover {
+    background: #4cae4c;
+}
+
+.tabela-tarefas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela-tarefas th, .tabela-tarefas td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabela-tarefas th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tabela-tarefas tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabela-tarefas tr:hover {
+    background-color: #ddd;
+}
+
+.sem-tarefas {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+.mensagem {
+    text-align: center;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #337ab7;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.voltar:hover {
+    background: #286090;
+}

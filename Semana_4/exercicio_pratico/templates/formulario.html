@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplo Flask-WTF - {{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>
+      <a href="/">Voltar para o início</a>
+    </p>
+    <hr />
+
+    <!-- O formulário começa aqui, agora com novalidate -->
+    <form method="POST" action="" novalidate>
+      <!-- Campo oculto para proteção CSRF. Essencial! -->
+      {{ form.hidden_tag() }}
+
+      <div>
+        {{ form.nome_evento.label }} {{ form.nome_evento(placeholder='Digite o nome do evento') }}
+        {% for error in form.nome_evento.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div>
+        {{ form.data_evento.label }} {{ form.data_evento(placeholder='Digite a data do evento') }}
+        {% for error in form.data_evento.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div>
+        {{ form.organizador.label }} {{ form.organizador(placeholder='Digite o nome do organizador') }}
+        {% for error in form.organizador.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div>
+        {{ form.tipo_evento.label }} {{ form.tipo_evento }}
+        {% for error in form.tipo_evento.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <br />
+      <div>
+        {{ form.mensagem.label }}<br />
+        {{ form.mensagem(rows=5, cols=32) }}
+        {% for error in form.mensagem.errors %}
+          <br />
+          <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </div>
+      <br />
+      <div>{{ form.enviar() }}</div>
+    </form>
+  </body>
+</html>

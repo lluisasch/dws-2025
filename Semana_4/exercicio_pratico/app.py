@@ -22,7 +22,7 @@ class EventoForm(FlaskForm):
     nome_evento = StringField('Nome do Evento', validators=[DataRequired(message="O campo nome do evento é obrigatório.")])
     data_evento = DateField('Data do Evento', validators=[DataRequired(message="O campo data do evento é obrigatório."), validate_data_evento])
     organizador = StringField('Organizador', validators=[DataRequired(message="O campo organizador é obrigatório.")])
-    tipo_evento = SelectField('Tipo de Evento', choices=['Palestra', 'Reunião', 'Outro'])
+    tipo_evento = SelectField('Tipo de Evento', choices=['Palestra', 'Workshop', 'Meetup', 'Outro'])
     mensagem = TextAreaField('Mensagem')
     enviar = SubmitField('Enviar')
     descricao = TextAreaField('Descrição', validators=[validate_descricao])

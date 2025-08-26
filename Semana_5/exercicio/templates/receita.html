@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Receitas{% endblock %}
+
+{% block conteudo %}
+    <h2>Nova Receita</h2>
+    <div class="card">
+        <form method="POST" novalidate>
+            
+            {{ form.csrf_token }}
+            
+            <div class="form-group">
+                {{ form.nome_receita.label }}
+                {{ form.nome_receita(class='form-control') }}
+                {% if form.nome_receita.errors %}
+                    {% for error in form.nome_receita.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.ingredientes.label }}
+                {{ form.ingredientes(class='form-control', rows='5') }}
+                {% if form.ingredientes.errors %}
+                    {% for error in form.ingredientes.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.modo_preparo.label }}
+                {{ form.modo_preparo(class='form-control', rows='5') }}
+                {% if form.modo_preparo.errors %}
+                    {% for error in form.modo_preparo.errors %}
+                        <span class="form-error">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            <button type="submit">{{ form.submit.label.text }}</button>
+        </form>
+    </div>
+{% endblock %}

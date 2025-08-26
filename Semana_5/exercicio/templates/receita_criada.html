@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+  Receita Criada
+{% endblock %}
+
+{% block conteudo %}
+  <h2>Receita Criada</h2>
+  <div class="card">
+    <h3>Nome da Receita: {{ nome_receita }}</h3>
+    <p>Ingredientes:</p>
+    <ul>
+      <li>{{ ingredientes }}</li>
+    </ul>
+    <p>Modo de Preparo:</p>
+    <p>{{ modo_preparo }}</p>
+  </div>
+{% endblock %}

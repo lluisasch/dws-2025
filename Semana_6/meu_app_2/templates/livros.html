@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Livros</h2>
+    
+    <h3>Adicionar Novo Livro</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="titulo">Título do Livro:</label>
+        {{ form.titulo() }}
+        {% if form.titulo.errors %}
+            <ul class="errors">
+                {% for error in form.titulo.errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <label for="ano_publicacao">Ano de Publicação:</label>
+        {{ form.ano_publicacao() }}
+        {% if form.ano_publicacao.errors %}
+            <ul class="errors">
+                {% for error in form.ano_publicacao.errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <label for="autor">Autor:</label>
+        {{ form.autor() }}
+        {% if form.autor.errors %}
+            <ul class="errors">
+                {% for error in form.autor.errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <button type="submit">{{ form.submit.label.text }}</button>
+    </form>
+    
+    <h3>Livros Cadastrados</h3>
+    {% if livros %}
+        <ul>
+            {% for livro in livros %}
+                <li>{{ livro.titulo }} ({{ livro.ano_publicacao }}) - <strong>{{ livro.autor_rel.nome }}</strong></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum livro cadastrado ainda.</p>
+    {% endif %}
+{% endblock %}

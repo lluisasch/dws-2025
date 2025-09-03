@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Autores</h2>
+    
+    <h3>Adicionar Novo Autor</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="nome">Nome do Autor:</label>
+        {{ form.nome() }}
+        {% if form.nome.errors %}
+            <ul class="errors">
+                {% for error in form.nome.errors %}
+                    <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <button type="submit">{{ form.submit.label.text }}</button>
+    </form>
+    
+    <h3>Autores Cadastrados</h3>
+    {% if autores %}
+        <ul>
+            {% for autor in autores %}
+                <li>{{ autor.nome }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum autor cadastrado ainda.</p>
+    {% endif %}
+{% endblock %}

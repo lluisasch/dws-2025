@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plataforma de Receitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-100 text-slate-800">
+    <div class="container mx-auto p-6">
+      <header class="mb-6">
+        <h1 class="text-3xl font-bold">🍲 Plataforma de Receitas</h1>
+        <nav class="mt-2 space-x-4">
+          <a href="{{ url_for('index') }}" class="text-blue-600">Início</a>
+          <a href="{{ url_for('criar_receita') }}" class="text-green-600">Nova Receita</a>
+          <a href="{{ url_for('criar_chef') }}" class="text-purple-600">Novo Chef</a>
+        </nav>
+      </header>
+
+      {% with messages=get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="mb-4">
+            {% for category, message in messages %}
+              <div class="p-3 mb-2 rounded {% if category == 'success' %}
+                  bg-green-200
+                {% else %}
+                  bg-red-200
+                {% endif %}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

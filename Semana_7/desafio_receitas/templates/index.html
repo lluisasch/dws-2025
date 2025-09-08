@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 class="text-xl font-bold mb-4">Receitas</h2>
+  {% if receitas %}
+    <ul class="space-y-4">
+      {% for receita in receitas %}
+        <li class="bg-white p-4 rounded shadow">
+          <h3 class="text-lg font-semibold"><a href="{{ url_for('detalhes_receita', receita_id=receita.id) }}" class="text-blue-600 hover:underline">{{ receita.titulo }}</a></h3>
+          <p>
+            <strong>Chef:</strong>
+            <a href="{{ url_for('detalhes_chef', chef_id=receita.chef.id) }}" class="text-green-600">{{ receita.chef.nome }}</a>
+          </p>
+          <p>
+            <strong>Ingredientes:</strong>
+            {% for ing in receita.ingredientes %}
+              <span class="bg-gray-200 px-2 py-1 rounded">{{ ing.nome }}</span>
+            {% endfor %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhuma receita cadastrada ainda.</p>
+  {% endif %}
+{% endblock %}

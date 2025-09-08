@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-bold mb-4">Novo Chef</h2>
+<form method="POST" class="space-y-4">
+    <input type="text" name="nome" placeholder="Nome do Chef" required class="w-full p-2 border rounded">
+    <input type="text" name="especialidade" placeholder="Especialidade (ex: Culinária Italiana)" required class="w-full p-2 border rounded">
+    <input type="number" name="anos_experiencia" placeholder="Anos de Experiência" required class="w-full p-2 border rounded">
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Cadastrar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Chef {{ chef.nome }}</h2>
+  {% if chef.perfil %}
+    <p>
+      <strong>Especialidade:</strong> {{ chef.perfil.especialidade }}
+    </p>
+    <p>
+      <strong>Anos de Experiência:</strong> {{ chef.perfil.anos_experiencia }}
+    </p>
+  {% else %}
+    <p>Este chef ainda não possui perfil.</p>
+  {% endif %}
+
+  <h3 class="text-xl font-semibold mt-6">Receitas</h3>
+  <ul class="list-disc pl-6">
+    {% for receita in chef.receitas %}
+      <li>{{ receita.titulo }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
